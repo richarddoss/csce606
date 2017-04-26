@@ -1,4 +1,4 @@
-class Polls < ActiveRecord::Migration
+class Polls < ActiveRecord::Migration[5.0]
   def change
   end
 end

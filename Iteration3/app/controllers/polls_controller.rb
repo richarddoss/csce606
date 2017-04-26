@@ -39,11 +39,14 @@ end
     print("hello\n")
     @poll = Poll.new(poll_params)
     @poll.user_id=params[:user_id]
-    print("hell\n")
-    @poll.vote_options.first.poll_id=1
+    #@poll.vote_options.first.id=1
+    #print("hell\n")
+    #@poll.vote_options.first.poll_id=1
     print(@poll.vote_options.first.title)
-    print(@poll.vote_options.first.poll_id)
-    if @poll.save
+    print("hello\n")
+    print(@poll.vote_options.first.id)
+    print("Hello\n")
+    if @poll.save!
       print("hell\n")
       print("hello\n")
       flash[:success] = 'Poll was created!'

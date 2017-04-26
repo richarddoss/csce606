@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -18,35 +17,31 @@ ActiveRecord::Schema.define(version: 20170414073250) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.index ["user_id"], name: "index_polls_on_user_id"
   end
-
-  add_index "polls", ["user_id"], name: "index_polls_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "password_digest"
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
   create_table "vote_options", force: :cascade do |t|
     t.string   "title"
     t.integer  "poll_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["poll_id"], name: "index_vote_options_on_poll_id"
   end
-
-  add_index "vote_options", ["poll_id"], name: "index_vote_options_on_poll_id"
 
   create_table "votes", force: :cascade do |t|
     t.integer  "vote_option_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.index ["vote_option_id"], name: "index_votes_on_vote_option_id"
   end
-
-  add_index "votes", ["vote_option_id"], name: "index_votes_on_vote_option_id"
 
 end
