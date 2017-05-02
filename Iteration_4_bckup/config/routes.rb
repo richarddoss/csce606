@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
+  patch '/users/:user_id/polls/:id(.:format)', to:'polls#richi', as:'participant_update'
   
   #polling
   #get '/polls', to: 'polls#index', as: 'polls'
