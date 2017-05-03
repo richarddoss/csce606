@@ -1,0 +1,26 @@
+
+<% content_for(:page_header) {"Participate in our polls right now!"} %>
+<% @polls.each do |poll| %>
+  <div class="well">
+    <h2><%= poll.topic %></h2>
+    <p>
+      
+        <%= link_to 'Participate!', user_poll_path(params[:user_id],poll), class: 'btn btn-primary btn-lg block' %>
+      
+        
+    </p>
+
+    <div class="btn-group">
+      <%= link_to 'Edit', edit_user_poll_path(params[:user_id],poll), class: 'btn btn-default' %>
+      <%= link_to 'Delete', user_poll_path(params[:user_id],poll),
+                  method: :delete,
+                  class: 'btn btn-danger', data: {confirm: 'Are you sure?'} %>
+    </div>
+  </div>
+<% end %>
+
+<% @polls.each do |poll| %>
+  <div class="well">
+    <h2><%= poll.topic %> <small>(voted: <%= poll.votes_summary %>)</small></h2>
+  </div>
+<% end %>

@@ -1,0 +1,23 @@
+
+<% content_for(:page_header) {"Participate in our polls right now!"} %>
+<% @polls.each do |poll| %>
+  <div class="well">
+    <h2><%= poll.topic %></h2>
+    <p>
+      
+        <%= link_to 'Participate!', user_poll_path(params[:user_id],poll), class: 'btn btn-primary btn-lg block' %>
+      
+        
+    </p>
+
+    <div class="btn-group">
+      
+    </div>
+  </div>
+<% end %>
+
+<% @polls.each do |poll| %>
+  <div class="well">
+    <h2><%= poll.topic %> <small>(voted: <%= poll.votes_summary %>)</small></h2>
+  </div>
+<% end %>
