@@ -5,6 +5,6 @@ class CreateVotes < ActiveRecord::Migration[5.0]
       
       t.timestamps null: false
     end
-    add_index :votes, [:vote_option_id], unique: true
+    #add_index :votes, [:vote_option_id], unique: true
   end
 end
